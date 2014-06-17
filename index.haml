@@ -1,0 +1,27 @@
+!!!
+%html.no-js{lang: "ru-RU"}
+  %head
+    %title feed.js
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
+  
+  %body#page.page
+    = Haml::Engine.new(File.read('views/common/_alerts.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_header.haml')).render
+    
+    %main#main.main{role: "main"}
+      %section{role: "region", "aria-label" => ""}
+        .ctn
+          .p-t_4.p-b_4
+            %div.tx.__center
+              
+              #feed.feed.grid
+                - 1.upto(12) do
+                  .feed_i.grid-i.__grid-2>
+                    %p Item
+              
+              %a.form-el.__btn.c-btn.__light{href: "#", data: {load: "/data/items.html", feed: "#feed", page: 1}}
+                %i.fa.fa-refresh
+                &nbsp;
+                Load more
+                  
+    = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render
