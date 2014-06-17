@@ -9,7 +9,8 @@ $(function() {
             feed = $(_this).data('feed'),
             page = $(_this).data('page');
 
-        alert('Current page: ' + page);
+        alert('Loading url: ' + load + '?page=' + page);
+        alert('Loading page: ' + page);
 
 
         // $feed = typeof feed == 'undefined' ? $(_this).closest('.section').find('.feed') : $(_this).siblings(feed);
@@ -31,9 +32,8 @@ $(function() {
                             $(feed).append($response).imagesLoaded( function() {
 
                                 $(_this).data('page', ++page);
-
-                                alert('Loading url: ' + load + '?page=' + page);
-                                alert('Load page: ' + page);
+                                
+                                alert('Next page: ' + page);
 
                                 //
                                 // .. Calback load
